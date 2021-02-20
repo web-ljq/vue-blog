@@ -6,7 +6,6 @@
 
 <style>
 .container .router__view .category {
-  width: 1160px;
   min-height: 600px;
   margin: 0 auto;
   background-color: #ffffff90;

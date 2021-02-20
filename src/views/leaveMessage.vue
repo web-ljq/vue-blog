@@ -6,7 +6,6 @@
 
 <style>
 .container .router__view .leave__message {
-  width: 1160px;
   min-height: 600px;
   margin: 0 auto;
   background-color: #ffffff90;

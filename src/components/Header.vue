@@ -51,7 +51,7 @@ export default {
   name: "Header",
   data() {
     return {
-      isHide: true,
+      isHide: false,
     };
   },
   methods: {
@@ -101,13 +101,14 @@ export default {
 .container .header .side_menu {
   position: absolute;
   top: 0px;
-  left: 0px;
+  left: -220px;
   z-index: 2;
   width: 220px;
   height: 100vh;
   overflow: hidden;
   padding-top: 56px;
   background-color: #fff;
+  transition: all 0.5s;
 }
 .container .header .side_menu .fa-remove {
   font-size: 24px;

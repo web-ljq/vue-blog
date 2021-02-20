@@ -69,7 +69,8 @@ a {
   display: block;
 }
 .hide {
-  display: none;
+  left: 0px !important;
+  transition: all 0.5s;
 }
 .container {
   width: 100%;
@@ -82,8 +83,10 @@ a {
 .container .router__view .category,
 .container .router__view .archive,
 .container .router__view .leave__message {
+  width: 1140px;
   position: relative;
   z-index: 1;
+  padding: 10px;
 }
 /* 响应式 */
 /**  pc **/
@@ -104,11 +107,14 @@ a {
   .container .router__view .category,
   .container .router__view .archive,
   .container .router__view .leave__message {
-    width: 100% !important;
+    width: calc(100% - 20px) !important;
   }
 }
 /** iPhone **/
 @media only screen and (min-width: 320px) and (max-width: 767px) {
+  .container .header .logo {
+    margin-left: 30px;
+  }
   .container .header ul {
     display: none;
   }
@@ -119,7 +125,35 @@ a {
   .container .router__view .category,
   .container .router__view .archive,
   .container .router__view .leave__message {
+    width: calc(100% - 20px) !important;
+  }
+  .container .router__view .article__list {
+    display: flex;
+    flex-direction: column !important;
+  }
+  .container .router__view .article__list .lists {
     width: 100% !important;
+    background-color: #ffffff70;
+  }
+  .container .router__view .article__list .lists .item {
+    display: flex;
+    flex-direction: column !important;
+    padding-bottom: 10px;
+    margin-bottom: 40px;
+    box-shadow: 0px 2px 0px #ccc;
+  }
+  .container .router__view .article__list .lists .item .img {
+    width: 100% !important;
+    height: 120px;
+  }
+  .container .router__view .article__list .lists .item .img img {
+    width: 100% !important;
+    height: 120px;
+  }
+  .container .router__view .article__list .sidebar {
+    width: 100% !important;
+    margin-top: 20px;
+    background-color: #ffffff70;
   }
 }
 </style>
