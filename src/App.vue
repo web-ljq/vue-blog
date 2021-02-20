@@ -127,6 +127,9 @@ a {
   .container .router__view .leave__message {
     width: calc(100% - 20px) !important;
   }
+  .container .router__view {
+    margin-top: 100px;
+  }
   .container .router__view .article__list {
     display: flex;
     flex-direction: column !important;
@@ -145,15 +148,25 @@ a {
   .container .router__view .article__list .lists .item .img {
     width: 100% !important;
     height: 120px;
+    border-top-right-radius: 10px !important;
+    border-right: none !important;
   }
   .container .router__view .article__list .lists .item .img img {
     width: 100% !important;
     height: 120px;
+    border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+    border-bottom-left-radius: 0px !important;
   }
   .container .router__view .article__list .sidebar {
     width: 100% !important;
     margin-top: 20px;
     background-color: #ffffff70;
+  }
+  /* category */
+  .container .router__view .category {
+    display: flex;
+    flex-direction: column !important;
   }
 }
 </style>

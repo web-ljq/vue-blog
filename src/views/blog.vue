@@ -25,7 +25,7 @@
       <div class="item">
         <div class="img">
           <img
-            src="https://desk-fd.zol-img.com.cn/t_s208x130c5/g2/M00/01/09/ChMlWl60xRSIU5DmACPr8eQq_wsAAO7iwNxPXAAI-wJ547.jpg"
+            src="https://desk-fd.zol-img.com.cn/t_s208x130c5/g5/M00/0B/00/ChMkJ1wcj_6ISkhqAAzaH0nSsBQAAt6JQGN1IUADNo3218.jpg"
             alt="img"
           />
         </div>
@@ -46,7 +46,7 @@
       <div class="item">
         <div class="img">
           <img
-            src="https://desk-fd.zol-img.com.cn/t_s208x130c5/g2/M00/01/09/ChMlWl60xRSIU5DmACPr8eQq_wsAAO7iwNxPXAAI-wJ547.jpg"
+            src="https://desk-fd.zol-img.com.cn/t_s208x130c5/g5/M00/0B/00/ChMkJ1wcln2IIJv6AAvGcrDkD_cAAt6LAOpZWoAC8aK414.jpg"
             alt="img"
           />
         </div>
@@ -95,7 +95,7 @@
   border-right: 1px solid #999;
 }
 .container .router__view .article__list .lists .item .img img {
-  width: 220px;
+  /* width: 220px; */
   height: 220px;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
@@ -109,6 +109,7 @@
   line-height: 40px;
   font-size: 22px;
   font-weight: 400;
+  padding: 0 10px;
 }
 .container .router__view .article__list .lists .item .article-info h2 i {
   font-size: 23px;
@@ -117,6 +118,7 @@
 }
 .container .router__view .article__list .lists .item .article-info .other-info {
   height: 30px;
+  padding: 0 10px;
   line-height: 30px;
   font-size: 14px;
   font-weight: 300;
@@ -142,10 +144,12 @@
   margin-right: 10px;
 }
 .container .router__view .article__list .lists .item .article-info .content {
-  font-size: 15px;
   height: 80px;
-  padding: 10px 0;
-  color: #777;
+  font-size: 15px;
+  padding: 10px;
+  line-height: 18px;
+  color: #000;
+  overflow: hidden;
 }
 .container .router__view .article__list .lists .item .article-info .btn {
   color: #666;
