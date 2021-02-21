@@ -78,7 +78,7 @@
         <li><router-link to="article-detail">title</router-link></li>
         <li><router-link to="article-detail">title</router-link></li>
         <li>. . . . . . .</li>
-        <li>合计{{ 99 }}篇文章</li>
+        <li>文章：{{ 99 }}</li>
       </ul>
     </div>
     <!--  -->
