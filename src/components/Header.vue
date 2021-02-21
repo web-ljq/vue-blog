@@ -1,6 +1,12 @@
 <template>
   <div class="header">
-    <div class="logo">logo</div>
+    <div class="logo">
+      <img
+        src="https://desk-fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0E/ChMkJ1bKwbyILdBAAAkzcOBaOX0AALGdAExBCMACTOI648.jpg"
+        alt=""
+      />
+      <a href="http://www.fleeting-time.com:3006/home/articleList">一叶知秋</a>
+    </div>
     <ul>
       <li>
         <router-link to="/">主页</router-link>
@@ -72,12 +78,27 @@ export default {
   left: 0;
   z-index: 2;
   background-color: #ffffff90;
-  border-bottom: 1px solid #abcdef;
+  border-bottom: 1px solid #ddd;
 }
 .container .header .logo {
   width: 150px;
   float: left;
   margin-left: 80px;
+}
+.container .header .logo {
+  display: flex;
+  align-items: center;
+}
+.container .header .logo img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+.container .header .logo a {
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 0.1rem;
 }
 .container .header ul {
   float: right;

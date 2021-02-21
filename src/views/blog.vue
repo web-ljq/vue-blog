@@ -65,7 +65,22 @@
         </div>
       </div>
     </div>
-    <div class="sidebar">sidebar</div>
+    <div class="sidebar">
+      <ul class="new-article">
+        <h3>最新文章</h3>
+        <div class="line"></div>
+        <li>
+          <router-link to="article-detail"
+            >titletitletitletitletitletitletitletitletitletitletitletitletitle</router-link
+          >
+        </li>
+        <li><router-link to="article-detail">title</router-link></li>
+        <li><router-link to="article-detail">title</router-link></li>
+        <li><router-link to="article-detail">title</router-link></li>
+        <li>. . . . . . .</li>
+        <li>合计{{ 99 }}篇文章</li>
+      </ul>
+    </div>
     <!--  -->
   </div>
 </template>
@@ -170,6 +185,40 @@
 }
 .container .router__view .article__list .sidebar {
   width: 320px;
+  border-radius: 10px;
+}
+.container .router__view .article__list .sidebar .new-article {
+  padding: 15px 10px 40px 10px;
   background-color: #ffffff70;
+}
+.container .router__view .article__list .sidebar .new-article h3 {
+  font-size: 24px;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.container .router__view .article__list .sidebar .new-article .line {
+  width: 100%;
+  height: 1px;
+  background-color: #000;
+  position: relative;
+  top: -34px;
+}
+.container .router__view .article__list .sidebar .new-article li {
+  height: 30px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: normal;
+  letter-spacing: 0.1rem;
+  padding: 5px 20px;
+  font-size: 17px;
+  font-weight: 400;
+  border-bottom: 1px solid #ddd;
+}
+.container .router__view .article__list .sidebar .new-article li a {
+  color: #777;
+}
+.container .router__view .article__list .sidebar .new-article li a:hover {
+  color: #abcdef;
 }
 </style>

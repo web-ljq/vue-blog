@@ -77,12 +77,13 @@ a {
   height: 100%;
 }
 .container .router__view {
-  margin: 76px auto 20px;
+  margin: 96px auto 20px;
 }
 .container .router__view .article__list,
 .container .router__view .category,
 .container .router__view .archive,
-.container .router__view .leave__message {
+.container .router__view .leave__message,
+.container .router__view .article__detail {
   width: 1140px;
   position: relative;
   z-index: 1;
@@ -97,7 +98,8 @@ a {
   .container .router__view .article__list,
   .container .router__view .category,
   .container .router__view .archive,
-  .container .router__view .leave__message {
+  .container .router__view .leave__message,
+  .container .router__view .article__detail {
     width: 100% !important;
   }
 }
@@ -106,12 +108,17 @@ a {
   .container .router__view .article__list,
   .container .router__view .category,
   .container .router__view .archive,
-  .container .router__view .leave__message {
+  .container .router__view .leave__message,
+  .container .router__view .article__detail {
     width: calc(100% - 20px) !important;
   }
 }
 /** iPhone **/
 @media only screen and (min-width: 320px) and (max-width: 767px) {
+  .container .header {
+    height: 80px !important;
+    line-height: 80px !important;
+  }
   .container .header .logo {
     margin-left: 30px;
   }
@@ -124,7 +131,8 @@ a {
   .container .router__view .article__list,
   .container .router__view .category,
   .container .router__view .archive,
-  .container .router__view .leave__message {
+  .container .router__view .leave__message,
+  .container .router__view .article__detail {
     width: calc(100% - 20px) !important;
   }
   .container .router__view {
@@ -164,9 +172,76 @@ a {
     background-color: #ffffff70;
   }
   /* category */
-  .container .router__view .category {
+  .container .router__view .category .cards {
     display: flex;
     flex-direction: column !important;
+    margin: 0 !important;
+  }
+  .container .router__view .category .cards .item {
+    width: 100% !important;
+    height: 380px;
+    margin: 0 !important;
+    margin-bottom: 20px !important;
+  }
+  .container .router__view .category .cards .item .card_img img {
+    height: 200px;
+  }
+  /* leave__messages */
+  .container .router__view .leave__message {
+    display: flex;
+    flex-direction: column !important;
+  }
+  .container .router__view .leave__message .website-leave,
+  .container .router__view .leave__message .sidebar {
+    width: 100% !important;
+    margin-bottom: 20px;
+  }
+  .container
+    .router__view
+    .leave__message
+    .website-leave
+    .leave-form
+    .input-group {
+    flex-direction: column !important;
+  }
+  .container
+    .router__view
+    .leave__message
+    .website-leave
+    .leave-form
+    .input-group
+    .nickname,
+  .container
+    .router__view
+    .leave__message
+    .website-leave
+    .leave-form
+    .input-group
+    .email {
+    width: 100% !important;
+    margin-bottom: 20px;
+  }
+  /* .container .router__view .archive */
+  .container .router__view .archive {
+    flex-direction: column !important;
+  }
+  .container .router__view .archive ul.timeline-wrapper {
+    width: calc(100% - 10px) !important;
+    margin-bottom: 20px;
+  }
+  .container .router__view .archive .sidebar {
+    width: 100% !important;
+  }
+  /* .container .router__view .article__detail */
+  .container .router__view .article__detail {
+    flex-direction: column !important;
+  }
+  .container .router__view .article__detail .article {
+    width: calc(100% - 20px) !important;
+    margin-bottom: 20px;
+  }
+  .container .router__view .article__detail .sidebar {
+    width: 100% !important;
   }
 }
 </style>
