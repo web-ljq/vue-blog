@@ -1,7 +1,7 @@
 <template>
   <div class="article__detail">
     <div class="article">
-      <h3>{{ detailData.title }}</h3>
+      <h3 style="text-align:center">{{ detailData.title }}</h3>
       <ul class="other-info">
         <li>
           <i class="fa fa-tag"></i><span>{{ detailData.tag[0] }}</span>
@@ -105,7 +105,6 @@ export default {
   height: 48px;
   font-size: 24px;
   font-weight: 400;
-  text-align: center;
   border-bottom: 1px solid #ddd;
 }
 .container .router__view .article__detail .article .other-info {
