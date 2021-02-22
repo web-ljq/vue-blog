@@ -2,7 +2,7 @@
   <div class="category">
     <div class="cards">
       <div class="item" v-for="item in categoryData" :key="item.username">
-        <div class="card_img">
+        <div class="card_img" @click="toBlogOfcategory(item.classifyName)">
           <img
             src="https://desk-fd.zol-img.com.cn/t_s208x130c5/g5/M00/04/08/ChMkJ1xFgxKIGUiwAAI8v2QDlx4AAugQwP0ohIAAjzX192.jpg"
             alt=""
@@ -20,7 +20,10 @@
               >{{ item.username }}</span
             >
           </div>
-          <p>{{ item.introduction }}</p>
+          <p>{{ item.instructions }}</p>
+          <span style="font-size:14px"
+            ><i class="fa fa-calendar"></i>{{ item.createdAt }}</span
+          >
         </div>
       </div>
     </div>
@@ -28,28 +31,33 @@
   </div>
 </template>
 <script>
+import axios from "axios";
 export default {
   name: "Category",
   data() {
     return {
-      categoryData: [
-        {
-          categoryNmae: "Vue",
-          username: "ljq",
-          introduction: "const vm = Vue()",
-        },
-        {
-          categoryNmae: "Vue",
-          username: "ljq",
-          introduction: "const vm = Vue()",
-        },
-        {
-          categoryNmae: "Vue",
-          username: "ljq",
-          introduction: "const vm = Vue()",
-        },
-      ],
+      categoryData: [],
     };
+  },
+  methods: {
+    toBlogOfcategory(category) {
+      this.$router.push({
+        name: "blog",
+        query: {
+          category,
+        },
+      });
+    },
+  },
+  mounted() {
+    axios
+      .get("/api/classify")
+      .then((res) => {
+        this.categoryData = res.data.data;
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   },
 };
 </script>
@@ -92,6 +100,7 @@ export default {
 .container .router__view .category .cards .item .card_info {
   padding: 10px;
   font-size: 22px;
+  text-align: center;
 }
 .container .router__view .category .cards .item .card_info .icon {
   display: flex;
@@ -104,11 +113,13 @@ export default {
   color: #999;
 }
 .container .router__view .category .cards .item .card_info i {
+  font-size: 16px;
   margin-right: 10px;
   color: #000;
 }
 .container .router__view .category .cards .item .card_info p {
   font-size: 18px;
   padding: 10px;
+  height: 70px;
 }
 </style>

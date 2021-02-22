@@ -1,10 +1,14 @@
 <template>
   <div class="article__detail">
     <div class="article">
-      <h3>title</h3>
+      <h3>{{ detailData.title }}</h3>
       <ul class="other-info">
-        <li><i class="fa fa-tag"></i><span>tag</span></li>
-        <li><i class="fa fa-calendar"></i><span>2020/12/12</span></li>
+        <li>
+          <i class="fa fa-tag"></i><span>{{ detailData.tag[0] }}</span>
+        </li>
+        <li>
+          <i class="fa fa-calendar"></i><span>{{ detailData.createdAt }}</span>
+        </li>
         <li>
           <i class="fa fa-user-secret"></i>
           <span>ljq</span>
@@ -44,6 +48,7 @@ import hljs from "highlight.js";
 import "highlight.js/styles/monokai-sublime.css";
 
 import Sidebar from "../components/Sidebar";
+import axios from "axios";
 
 export default {
   name: "ArticleDetail",
@@ -51,31 +56,35 @@ export default {
     Sidebar,
   },
   data() {
+    // this.$route.params.category
     return {
-      detailData: {
-        title: "001",
-        content:
-          "# code \n```javascript\nfunction(){\n\tconsole.log(123)\n}\n```\
-          \n# code \n```javascript\nfunction(){\n\tconsole.log(123)\n}\n```",
-      },
+      detailData: {},
     };
   },
   mounted() {
-    marked.setOptions({
-      renderer: new marked.Renderer(),
-      highlight: function(code) {
-        return hljs.highlightAuto(code).value;
-      },
-      pedantic: false,
-      gfm: true,
-      tables: true,
-      breaks: false,
-      sanitize: false,
-      smartLists: true,
-      smartypants: false,
-      xhtml: false,
-    });
-    this.detailData.content = marked(this.detailData.content);
+    axios
+      .get("/api/getArticleById?_id=" + this.$route.query.id)
+      .then((res) => {
+        this.detailData = res.data.data;
+        marked.setOptions({
+          renderer: new marked.Renderer(),
+          highlight: function(code) {
+            return hljs.highlightAuto(code).value;
+          },
+          pedantic: false,
+          gfm: true,
+          tables: true,
+          breaks: false,
+          sanitize: false,
+          smartLists: true,
+          smartypants: false,
+          xhtml: false,
+        });
+        this.detailData.content = marked(this.detailData.content);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   },
 };
 </script>

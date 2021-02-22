@@ -10,9 +10,10 @@
         </div>
         <div class="timeline-content">
           <div class="timeline-date">
-            <i class="fa fa-wpforms" style="margin-right:10px"></i>{{ t.date }}
+            <i class="fa fa-wpforms" style="margin-right:10px"></i
+            >{{ t.createdAt }}
           </div>
-          <div class="timeline-title">
+          <div class="timeline-title" @click="toBlogOfArchive(t._id)">
             <i class="fa fa-toggle-up" style="margin-right:10px"></i
             >{{ t.title }}
           </div>
@@ -27,35 +28,22 @@
       <ul class="tags">
         <h3>标签云</h3>
         <li v-for="tag in tagData" :key="tag">
-          <router-link to="/blog">{{ tag }}</router-link>
+          <router-link :to="{ path: 'blog', query: { tag: tag } }">{{
+            tag
+          }}</router-link>
         </li>
       </ul>
     </div>
   </div>
 </template>
 
-<script type="text/babel">
+<script>
+import axios from "axios";
 export default {
   name: "Archive",
   data() {
     return {
-      timelineList: [
-        {
-          date: "2020/12/12",
-          title: "001",
-          content: "....content",
-        },
-        {
-          date: "2020/12/12",
-          title: "001",
-          content: "....content",
-        },
-        {
-          date: "2020/12/12",
-          title: "001",
-          content: "....content",
-        },
-      ],
+      timelineList: [],
       tagData: [
         "vue",
         "react",
@@ -91,6 +79,26 @@ export default {
         "sass",
       ],
     };
+  },
+  methods: {
+    toBlogOfArchive(id) {
+      this.$router.push({
+        path: "article-detail",
+        query: {
+          id,
+        },
+      });
+    },
+  },
+  mounted() {
+    axios
+      .get("/api/articleList")
+      .then((res) => {
+        this.timelineList = res.data.data;
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   },
 };
 </script>
@@ -162,6 +170,7 @@ ul.timeline-wrapper {
   margin-bottom: 16px;
   color: #333;
   font-weight: 500;
+  cursor: pointer;
   /*display: inline;*/
 }
 
@@ -172,6 +181,11 @@ ul.timeline-wrapper {
   margin-bottom: 16px;
 }
 .timeline-desc {
+  width: 98%;
+  height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   font-size: 14px;
   color: #999999;
 }
