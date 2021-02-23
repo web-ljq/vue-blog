@@ -1,13 +1,13 @@
 <template>
   <div class="category">
     <div class="cards">
-      <div class="item" v-for="item in categoryData" :key="item.username">
-        <div class="card_img" @click="toBlogOfcategory(item.classifyName)">
+      <div class="item" v-for="item in categoryData" :key="item._id">
+        <div class="card_img" @click="toBlogOfcategory(item.category)">
           <img
             src="https://desk-fd.zol-img.com.cn/t_s208x130c5/g5/M00/04/08/ChMkJ1xFgxKIGUiwAAI8v2QDlx4AAugQwP0ohIAAjzX192.jpg"
             alt=""
           />
-          <h2>{{ item.categoryNmae }}</h2>
+          <h2>{{ item.category }}</h2>
         </div>
         <div class="card_info">
           <div class="icon">
@@ -27,7 +27,6 @@
         </div>
       </div>
     </div>
-    <!-- <router-link to="/category">category</router-link> -->
   </div>
 </template>
 <script>
@@ -42,7 +41,7 @@ export default {
   methods: {
     toBlogOfcategory(category) {
       this.$router.push({
-        name: "blog",
+        path: "blog",
         query: {
           category,
         },
@@ -51,7 +50,7 @@ export default {
   },
   mounted() {
     axios
-      .get("/api/classify")
+      .get("/api/category")
       .then((res) => {
         this.categoryData = res.data.data;
       })

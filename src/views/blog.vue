@@ -3,10 +3,7 @@
     <div class="lists">
       <div class="item" v-for="article in articleDataList" :key="article._id">
         <div class="img">
-          <img
-            src="https://desk-fd.zol-img.com.cn/t_s208x130c5/g2/M00/01/09/ChMlWl60xRSIU5DmACPr8eQq_wsAAO7iwNxPXAAI-wJ547.jpg"
-            alt="img"
-          />
+          <img :src="article.imgUrl" alt="img" />
         </div>
         <div class="article-info">
           <h2>
