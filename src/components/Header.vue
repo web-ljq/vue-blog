@@ -31,22 +31,25 @@
     <div :class="{ hide: isHide, side_menu: true }">
       <i class="fa fa-remove" @click="onChangeHide"></i>
       <div class="side_menu_item" @click="onChangeHide">
-        <i class="fa fa-home"></i><router-link to="/">主页</router-link>
+        <router-link to="/"><i class="fa fa-home"></i>主页</router-link>
       </div>
       <div class="side_menu_item" @click="onChangeHide">
-        <i class="fa fa-book"></i><router-link to="/blog">博客</router-link>
+        <router-link to="/blog"><i class="fa fa-book"></i>博客</router-link>
       </div>
       <div class="side_menu_item" @click="onChangeHide">
-        <i class="fa fa-tasks"></i
-        ><router-link to="/category">分类</router-link>
+        <router-link to="/category"
+          ><i class="fa fa-tasks"></i>分类</router-link
+        >
       </div>
       <div class="side_menu_item" @click="onChangeHide">
-        <i class="fa fa-archive"></i
-        ><router-link to="/archive">归档</router-link>
+        <router-link to="/archive"
+          ><i class="fa fa-archive"></i>归档</router-link
+        >
       </div>
       <div class="side_menu_item" @click="onChangeHide">
-        <i class="fa fa-inbox"></i
-        ><router-link to="/leave-message">留言</router-link>
+        <router-link to="/leave-message"
+          ><i class="fa fa-inbox"></i>留言</router-link
+        >
       </div>
     </div>
   </div>
@@ -139,10 +142,14 @@ export default {
 }
 .container .header .side_menu .side_menu_item {
   font-size: 18px;
-  height: 40px;
+}
+.container .header .side_menu .side_menu_item a {
+  display: inline-block;
+  width: calc(100% - 55px);
+  height: 100%;
+  padding-left: 55px;
 }
 .container .header .side_menu .side_menu_item i {
-  margin-left: 30px;
-  margin-right: 10px;
+  margin-right: 15px;
 }
 </style>

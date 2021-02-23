@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <router-link to="/blog">郑球球</router-link>
+    <router-link to="/blog">一叶知秋</router-link>
   </div>
 </template>
 

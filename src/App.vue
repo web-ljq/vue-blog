@@ -219,7 +219,26 @@ a {
     .input-group
     .email {
     width: 100% !important;
+
     margin-bottom: 20px;
+  }
+  .container
+    .router__view
+    .leave__message
+    .website-leave
+    .leave-form
+    .input-group
+    .nickname
+    input,
+  .container
+    .router__view
+    .leave__message
+    .website-leave
+    .leave-form
+    .input-group
+    .email
+    input {
+    height: 40px !important;
   }
   /* .container .router__view .archive */
   .container .router__view .archive {
