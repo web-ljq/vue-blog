@@ -29,59 +29,42 @@
       </div>
       <div class="leave-form">
         <p>于网络中相遇，便留下些足迹吧。</p>
-        <textarea placeholder="留言内容..." />
+        <textarea placeholder="留言内容..." v-model="content" />
         <div class="input-group">
           <div class="nickname">
-            <input placeholder="昵称..." name="nickname" type="text" />
+            <input
+              placeholder="昵称..."
+              name="nickname"
+              type="text"
+              v-model="nickname"
+            />
           </div>
           <div class="email">
-            <input placeholder="邮箱..." name="email" type="email" />
+            <input
+              placeholder="邮箱..."
+              name="email"
+              type="email"
+              v-model="email"
+            />
           </div>
         </div>
-        <div class="btn">发表留言</div>
+        <div class="btn" @click="submitAndUpdate">发表留言</div>
       </div>
       <div class="leave-message-list">
         <ul>
-          <li>
+          <li v-for="item in leaveData" :key="item._id">
             <div>
               <h3>
-                <i class="fa fa-user-o" style="margin-right:10px"></i>nickname
+                <i class="fa fa-user-o" style="margin-right:10px"></i
+                >{{ item.nickname }}
               </h3>
               <span>
                 <i class="fa fa-wpforms" style="margin-right:10px"></i
-                >2020/12/12
+                >{{ item.createdAt }}
               </span>
             </div>
             <p>
-              留言板内容....留言板内容....留言板内容....留言板内容....留言板内容....留言板内容....留言板内容....留言板内容....留言板内容....留言板内容....留言板内容....留言板内容....留言板内容....留言板内容....留言板内容....
-            </p>
-          </li>
-          <li>
-            <div>
-              <h3>
-                <i class="fa fa-user-o" style="margin-right:10px"></i>nickname
-              </h3>
-              <span>
-                <i class="fa fa-wpforms" style="margin-right:10px"></i
-                >2020/12/12
-              </span>
-            </div>
-            <p>
-              留言板内容....留言板内容....留言板内容....留言板内容....留言板内容....留言板内容....留言板内容....留言板内容....留言板内容....留言板内容....留言板内容....留言板内容....留言板内容....留言板内容....留言板内容....
-            </p>
-          </li>
-          <li>
-            <div>
-              <h3>
-                <i class="fa fa-user-o" style="margin-right:10px"></i>nickname
-              </h3>
-              <span>
-                <i class="fa fa-wpforms" style="margin-right:10px"></i
-                >2020/12/12
-              </span>
-            </div>
-            <p>
-              留言板内容....留言板内容....留言板内容....留言板内容....留言板内容....留言板内容....留言板内容....留言板内容....留言板内容....留言板内容....留言板内容....留言板内容....留言板内容....留言板内容....留言板内容....
+              {{ item.content }}
             </p>
           </li>
         </ul>
@@ -121,6 +104,52 @@
     </div>
   </div>
 </template>
+<script>
+import axios from "axios";
+export default {
+  name: "LeaveMessage",
+  data() {
+    return {
+      leaveData: [],
+      nickname: "",
+      email: "",
+      content: "",
+    };
+  },
+  methods: {
+    getLeaveMessageList: function() {
+      axios
+        .get("/api/leaveMessageList")
+        .then((res) => {
+          this.leaveData = res.data.data;
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    },
+    submitAndUpdate: function() {
+      axios
+        .post("/api/addLeaveMessage", {
+          nickname: this.nickname,
+          email: this.email,
+          content: this.content,
+        })
+        .then((res) => {
+          this.getLeaveMessageList();
+          this.nickname = "";
+          this.email = "";
+          this.content = "";
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    },
+  },
+  mounted() {
+    this.getLeaveMessageList();
+  },
+};
+</script>
 
 <style>
 .container .router__view .leave__message {
